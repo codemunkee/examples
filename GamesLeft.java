@@ -6,7 +6,7 @@ class GamesLeft {
         int dLost = 58;
 
         int gWon = 71;
-        int gLost = 66;
+        int gLost = 67;
 
         int dLeft = gamesLeft(dWon, dLost);
         int gLeft = gamesLeft(gWon, gLost);
@@ -23,9 +23,11 @@ class GamesLeft {
         if (dGamesBehind == gGamesBehind) {
             System.out.println("Dodgers & Giants are tied in the standings.");
         } else if (dGamesBehind >= gGamesBehind) {
-            System.out.println("Dodgers are " + dGamesBehind + " games behind.");
+            System.out.println("Dodgers are " + dGamesBehind +
+                               " games behind.");
         } else {
-            System.out.println("Giants are " + gGamesBehind + " games behind.");
+            System.out.println("Giants are " + gGamesBehind +
+                               " games behind.");
         }
         System.out.println();
 
@@ -57,15 +59,10 @@ class GamesLeft {
             //System.out.print(wins + ":" +  losses + "(" + winPct + ")");
             System.out.print(wins + ":" +  losses + " (" +
                              String.format( "%.3f", winPct ) + ")");
+
             // then total wins and losses
             int totalWins = gamesWon +  wins;
             int totalLosses = gamesLost +  losses;
-            //System.out.print(" | " + totalWins + ":" + totalLosses);
-
-            //if (losses < oppGB + 1) {
-            //    System.out.println(" => Impossible");
-            //    //continue;
-            //}
 
 
             int oppWins = totalWins - oppGamesWon + 1;
