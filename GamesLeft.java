@@ -1,12 +1,19 @@
 class GamesLeft {
     public static void main(String args[]) {
+
+        if(args.length == 0) {
+            System.out.println("Provide Dodgers games W, L, Giants games" +
+                               " W, L.");
+            System.exit(0);
+        }
+        
         int dGamesLeft, gGamesLeft;
 
-        int dWon = 78;
-        int dLost = 58;
+        int dWon = Integer.parseInt(args[0]);
+        int dLost = Integer.parseInt(args[1]);
 
-        int gWon = 71;
-        int gLost = 67;
+        int gWon = Integer.parseInt(args[2]);
+        int gLost = Integer.parseInt(args[3]);
 
         int dLeft = gamesLeft(dWon, dLost);
         int gLeft = gamesLeft(gWon, gLost);
@@ -57,7 +64,7 @@ class GamesLeft {
             // print wins and losses for remaining games
             double winPct = (double) wins / (double) gamesLeft;
             //System.out.print(wins + ":" +  losses + "(" + winPct + ")");
-            System.out.print(wins + ":" +  losses + " (" +
+            System.out.print(wins + "-" +  losses + " (" +
                              String.format( "%.3f", winPct ) + ")");
 
             // then total wins and losses
@@ -73,7 +80,7 @@ class GamesLeft {
 
             if (oppLosses == -1) {
                 System.out.print(" => " + oppTeamName + " ");
-                System.out.print((oppWins - 1) + ":" + (oppLosses + 1) +
+                System.out.print((oppWins - 1) + "-" + (oppLosses + 1) +
                                    " (1.000)");
                 System.out.println(" tie");
             } else if (losses < oppGB + 1) {
@@ -81,7 +88,7 @@ class GamesLeft {
             } else {
                 double oppWinPct = (double) oppWins / (double) oppGamesLeft;
                 System.out.print(" => " + oppTeamName + " ");
-                System.out.println(oppWins + ":" +  oppLosses + " (" +
+                System.out.println(oppWins + "-" +  oppLosses + " (" +
                                  String.format( "%.3f", oppWinPct ) + ")");
             }
         }
